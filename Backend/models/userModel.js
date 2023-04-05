@@ -1,26 +1,42 @@
 const mongoose = require("mongoose");
+const bcrypt=require("bcrypt")
 
 const userSchema = mongoose.Schema({
     name: {
         type: String,
-        required:true
+        required: true
     },
     email: {
         type: String,
-        required:true
+        unique: true,
+        required: true
     },
-    pass: {
+    password: {
         type: String,
-        required:true
+        required: true
     },
     pic: {
         type: String,
-        required: true,
-        default:"https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+        default: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     }
 },
     {
-    timestamp:true
-})
+        timestamp: true
+    });
 
-const User=mongoose.model("user",userSchema)
+// mathc the password
+userSchema.methods.matchPassword = async function(enteredPassword)  {
+    return await bcrypt.compare(enteredPassword,this.password)
+}
+
+// before the save to MongoDb
+userSchema.pre('save', async function(next) {
+    if (!this.isModified) {
+        next();
+    }
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt)
+});
+
+const User = mongoose.model("user", userSchema);
+module.exports={User}
