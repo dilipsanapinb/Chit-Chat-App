@@ -14,12 +14,32 @@ const SignUp = () => {
     const [password, setPassword] = useState();
     const [confirmedpassword, setConfirmassaword] = useState();
     const [pic, setPic] = useState();
+    const [loading, setLoading] = useState(false);
+    const toast=useToast()
     // handleCkick show and hide the password
     const handleCkick = () => setShow(!show)
-  
+    // https://api.cloudinary.com/v1_1/dvq5ovjvg
     // add image postdetails
     const postDetails = (pics) => {
-    
+        setLoading(true);
+        if (pic === undefined) {
+            toast({
+                title: "Please select an image",
+                status: "warning",
+                duraton: 5000,
+                isClosable: true,
+                position: "button"
+            });
+            return;
+        }
+        if (pics.type === "image/jpeg" || pics.type === "image/png") {
+            const data = new FormData();
+            data.append("file", pics);
+            // data.append("upload_preset", "Chit-Chat-App"),
+            // data.append("Cloud_name", "Chit-Chat-App"),
+            // fetch("https://api.cloudinary.com/v1_1/dvq5ovjvg")
+            
+        }
     }
 
     // submit the form
