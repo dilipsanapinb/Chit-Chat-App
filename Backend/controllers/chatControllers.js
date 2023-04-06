@@ -90,3 +90,22 @@ const groupChat = asynchandler(async(req,res) => {
         throw new Error(error.message)
     }
 })
+
+// rename the group
+const renameGroup = asynchandler(async(req,res) => {
+    const { chatId, chatName } = req.body;
+    const updateGroupName = await Chat.findByIdAndUpdate(
+        chatId, {
+        chatName: chatName
+    }, {
+        new: true,
+    })
+        .populate("users", "-password")
+        .populate("groupAdmin", "-password");
+    if (!updateGroupName) {
+        res.status(404);
+        throw new Error(error.message)
+    } else {
+        res.json(updateGroupName)
+    }
+})
