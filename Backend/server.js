@@ -6,6 +6,7 @@ const {ConnectToDB}=require("./config/db")
 const port = process.env.PORT || 5000;
 const colors = require("colors");
 const { userRouter } = require("./Routes/userRoutes");
+const {chatRouter}=require('./Routes/chatRouter')
 const {notFound,errorHandler}=require("./middleWares/errorMiddleware")
 app.use(express.json());
 
@@ -13,7 +14,9 @@ app.get("/",(req,res)=>{
     res.send("Welcome To Chit-Chat-App")
 })
 // users api
-app.use("/api/user", userRouter)
+app.use("/api/user", userRouter);
+// chat api
+app.use("/api/chat",chatRouter)
 
 // error handling
 app.use(notFound);

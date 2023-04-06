@@ -3,6 +3,7 @@ const { User } = require('../models/userModel')
 const {generateToken}=require("../config/generateToken")
 
 // get all users and regex
+// ap/user?search=value eg.Dilip
 const allUsers = asynchandler(async (req, res) => {
   const keyword = req.query.search
     ? {
@@ -14,6 +15,7 @@ const allUsers = asynchandler(async (req, res) => {
     : {};
 
   const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
+  // search result will be the users other than current loggeg in user
   res.send(users);
 });
 

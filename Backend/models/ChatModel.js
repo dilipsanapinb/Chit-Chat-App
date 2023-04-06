@@ -18,13 +18,11 @@ const chatSchema=mongoose.Schema({
     groupAdmin:{
         type:mongoose.Schema.Types.ObjectId,
         "ref":"User"
-    }
+    },
 },
-
 // timestamp of every data
-{
-    timestamps:true
-})
+{timestamps:true}
+)
 
 const Chat=mongoose.model("chat",chatSchema);
 
