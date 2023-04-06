@@ -131,3 +131,38 @@ const removeGroup = asynchandler(async(req,res) => {
         res.json(removed)
     }
 })
+
+
+
+
+
+
+
+
+
+
+
+// add to group
+
+const addGroup = asynchandler(async(req,res) => {
+    const { chatId, userId } = req.body;
+
+    const added =await Chat.findByIdAndUpdate(
+        chatId,
+        {
+            $push: { users: userId },
+        }, {
+        new: true
+    },
+    )
+        .populate("users", "-password")
+        .populate("groupAdmin", "-password");
+    if (!added) {
+        res.status(404);
+        throw new Error("Chat Not Found");
+    } else {
+        res.json(added)
+    }
+})
+
+module.exports={addGroup,removeGroup,renameGroup,groupChat,createChat,getChat}
