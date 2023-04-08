@@ -11,11 +11,13 @@ const messageSchema = mongoose.Schema({
     chat: {
         type: mongoose.Schema.Types.ObjectId,
         ref:"Chat"
-    }
+    },
+    readBy:
+        [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 }, {
     timestamp:true
 });
 
-const Message=mongoose.model("Messages",messageSchema);
+const Message=mongoose.model("Message",messageSchema);
 
 module.exports={Message};

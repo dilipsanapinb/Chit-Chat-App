@@ -3,7 +3,7 @@ const mongoose=require("mongoose");
 const chatSchema=mongoose.Schema({
 
     chatName:{type:String,trim:true},
-    isGroupChat:{type:Boolean,default:true},
+    isGroupChat:{type:Boolean,default:false},
     // users will be get from the users model
     users:[{
         type:mongoose.Schema.Types.ObjectId,
@@ -24,6 +24,6 @@ const chatSchema=mongoose.Schema({
 {timestamps:true}
 )
 
-const Chat=mongoose.model("chat",chatSchema);
+const Chat=mongoose.model("Chat",chatSchema);
 
 module.exports={Chat};

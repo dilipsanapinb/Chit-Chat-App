@@ -7,7 +7,7 @@ const chatRouter = express.Router();
 chatRouter.route("/").post(auth, createChat)
 chatRouter.route("/group").post(auth, groupChat)
 chatRouter.route("/rename").put(auth, renameGroup)
-chatRouter.route("/remove").put(auth, removeGroup)
+chatRouter.route("/removegroup").put(auth, removeGroup)
 chatRouter.route("/add").put(auth, addGroup)
 
 
