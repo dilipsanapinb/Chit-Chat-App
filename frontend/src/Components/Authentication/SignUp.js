@@ -5,7 +5,7 @@ import { VStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 import { useState } from "react";
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 
 const SignUp = () => {
     const [show, setShow] = useState(false)
@@ -16,7 +16,7 @@ const SignUp = () => {
     const [pic, setPic] = useState();
     const [loading, setLoading] = useState(false);
     const toast = useToast();
-     const navigate = useNavigate();
+    //  const navigate = useNavigate();
     // handleCkick show and hide the password
     const handleCkick = () => setShow(!show)
     // https://api.cloudinary.com/v1_1/dvq5ovjvg
@@ -98,7 +98,7 @@ const SignUp = () => {
                 },
             };
             const { data } = await axios.post(
-                "/api/user", {
+                "http://127.0.0.1:5000/api/user", {
                 name,
                 email,
                 password,

@@ -9,7 +9,8 @@ const { chatRouter } = require('./Routes/chatRouter');
 const {messageRouter}=require("./Routes/MessagesRoute")
 const {notFound,errorHandler}=require("./middleWares/errorMiddleware");
 const path=require("path")
-
+var cors = require('cors');
+app.use(cors())
 app.use(express.json());
 
 
