@@ -38,7 +38,32 @@
 
 ## Screenshots
 
-# SignUp Page
+# Home Page:
+https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/home%20page.png
+
+# SignUp Page:
+https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/sign%20up%20page.png
+
+# Search User:
+https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Search%20Users.png
+
+# All Chats Page:
+
+https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/All%20Chats.png
+
+# Create Group Chat:
+https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/create%20group.png
+
+# Update Group Chat Information:
+https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/edit%20group%20info.png
+
+# Admin Profile:
+https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Admin%20Profile.png
+
+# Users Profile
+https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Peers%20Profile.png
+
+
 
 
 
