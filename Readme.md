@@ -39,7 +39,8 @@
 ## Screenshots
 
 # Home Page:
-https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/home%20page.png
+   <img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/home%20page.png" alt="">
+
 
 # SignUp Page:
 https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/sign%20up%20page.png
