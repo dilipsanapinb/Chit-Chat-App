@@ -31,7 +31,7 @@
 - PUT /api/chat/removegroup
 - PUT /api/chat/add
 
-# message API List
+# Messages API List
 
 - POST /api/message
 - GET /api/message/:chatId
@@ -43,26 +43,31 @@
 
 
 # SignUp Page:
-https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/sign%20up%20page.png
+   <img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/sign%20up%20page.png" alt="">
 
 # Search User:
-https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Search%20Users.png
+   <img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Search%20Users.png" alt="">
+
 
 # All Chats Page:
+<img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/All%20Chats.png" alt="">
 
-https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/All%20Chats.png
 
 # Create Group Chat:
-https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/create%20group.png
+<img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/create%20group.png" alt="">
+
 
 # Update Group Chat Information:
-https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/edit%20group%20info.png
+<img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/edit%20group%20info.png" alt="">
+
 
 # Admin Profile:
-https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Admin%20Profile.png
+<img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Admin%20Profile.png" alt="">
 
-# Users Profile
-https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Peers%20Profile.png
+
+# Users Profile:
+<img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Peers%20Profile.png" alt="">
+
 
 
 
