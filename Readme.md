@@ -4,7 +4,7 @@
     with the help of the socket.io. This application is built with the tech stacks HTML, CSS, JavaScript, NodeJS , MongoDB ,Express.js and React,js. We are storing the the chats information with the help of the MongoDB, and when we logged in, we get all our chat history from database.
 
 ## Note 
- Chit-Chat-App's backend is not deployed, Only the frontend is deployed. If we need to run the application we nned to run our backend locally and then we can use the deployed fontend link https://gentle-dragon-b91caf.netlify.app/.
+ Chit-Chat-App's backend is not deployed, Only the frontend is deployed. If we need to run the application we need to run our backend locally and then we can use the deployed fontend link https://gentle-dragon-b91caf.netlify.app/.
 
 ## Tech Stacks
 - React
