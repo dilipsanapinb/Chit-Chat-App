@@ -37,9 +37,9 @@ const Login = () => {
             };
 
             const { data } = await axios.post(
-                "http://127.0.0.1:5000/api/user/login",
-                { email, password },
-                config
+              "http://127.0.0.1:5000/api/user/login",
+              { email, password },
+              config
             );
 
             // console.log(JSON.stringify(data));

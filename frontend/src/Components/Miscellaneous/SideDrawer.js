@@ -47,7 +47,10 @@ const SideDrawer = () => {
                     Authorization: `Bearer ${user.token}`,
                 },
             };
-            const { data } = await axios.get(`http://127.0.0.1:5000/api/user?search=${search}`, config);
+            const { data } = await axios.get(
+              `http://127.0.0.1:5000/api/user?search=${search}`,
+              config
+            );
             console.log(data);
             setLoading(false);
             setSearchResult(data);
@@ -75,7 +78,11 @@ const SideDrawer = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post(`http://127.0.0.1:5000/api/chat`, { userId }, config);
+      const { data } = await axios.post(
+        `http://127.0.0.1:5000/api/chat`,
+        { userId },
+        config
+      );
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
       setSelectedChat(data);
@@ -104,7 +111,7 @@ const SideDrawer = () => {
         >
             <Tooltip label="Search Users to Chat" hasArrow placement='bottom-end'>
                 <Button variant="ghost" onClick={onOpen}>
-                    <i class="fas fa-search"></i>
+                    <i className="fas fa-search"></i>
                     <Text display={{base:"none",md:"flex"}}p="4px">Search User</Text>
                 </Button>
             </Tooltip>
@@ -117,7 +124,7 @@ const SideDrawer = () => {
                     <MenuButton padding={1}>
                         <BellIcon fontSize="2xl" margin={1}/>
                     </MenuButton>
-                    <MenuList pl={2}>
+                    {/* <MenuList pl={2}>
                         {!notification.length && "No new Messages"}
                         {notification.map(notifi => {
                             <MenuItem key={notifi._id} onClick={
@@ -132,7 +139,7 @@ const SideDrawer = () => {
                             :`New Message from ${getSender(user,notifi.chat.user)}`}
                             </MenuItem>
                         })}
-                    </MenuList>
+                    </MenuList> */}
                 </Menu>
                 <Menu>
                     <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>

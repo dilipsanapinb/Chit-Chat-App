@@ -23,7 +23,7 @@ const HomePage = () => {
             w='100%'
             m='40px 0 15px 0'
             borderRadius='1g'
-            borderW='1px'
+            borderWidth='1px'
 
         >
             {/* <img src='./images/chat logo design.png' alt="Chit-Chat Logo" /> */}

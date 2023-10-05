@@ -98,13 +98,14 @@ const SignUp = () => {
                 },
             };
             const { data } = await axios.post(
-                "http://127.0.0.1:5000/api/user", {
+              "http://127.0.0.1:5000/api/user",
+              {
                 name,
                 email,
                 password,
-                pic
-            },
-                config
+                pic,
+              },
+              config
             );
             console.log(data);
             toast({
