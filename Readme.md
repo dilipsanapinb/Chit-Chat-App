@@ -39,34 +39,34 @@
 ## Screenshots
 
 # Home Page:
-   <img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/home%20page.png" alt="">
+   <img src="./readmeImages/home page.png" alt="">
 
 
 # SignUp Page:
-   <img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/sign%20up%20page.png" alt="">
+   <img src="./readmeImages/sign up page.png" alt="">
 
 # Search User:
-   <img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Search%20Users.png" alt="">
+   <img src="./readmeImages/Search Users.png" alt="">
 
 
 # All Chats Page:
-<img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/All%20Chats.png" alt="">
+<img src="./readmeImages/All Chats.png" alt="">
 
 
 # Create Group Chat:
-<img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/create%20group.png" alt="">
+<img src="./readmeImages/create group.png" alt="">
 
 
 # Update Group Chat Information:
-<img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/edit%20group%20info.png" alt="">
+<img src="./readmeImages/edit group info.png" alt="">
 
 
 # Admin Profile:
-<img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Admin%20Profile.png" alt="">
+<img src="./readmeImages/Admin Profile.png" alt="">
 
 
 # Users Profile:
-<img src="https://github.com/dilipsanapinb/Chit-Chat-App/blob/main/readmeImages/Peers%20Profile.png" alt="">
+<img src="./readmeImages/Admin Profile.png" alt="">
 
 
 
