@@ -1,20 +1,21 @@
-import {createContext, useContext, useEffect, useState } from 'react'
-import{redirect} from 'react-router-dom'
+import React,{createContext, useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 const ChatContext = createContext();
 
 const ChatProvider = ({ children }) => {
-  const [selectedChat, setSelectedChat] = useState();
-  const [user, setUser] = useState();
-  const [notification, setNotification] = useState([]);
-  const [chats, setChats] = useState([]);
+    const [selectedChat, setSelectedChat] = useState();
+    const [user, setUser] = useState();
+    const [notification, setNotification] = useState([]);
+    const [chats, setChats] = useState([]);
+    const navigate=useNavigate()
 
     useEffect(() => {
         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
         setUser(userInfo);
         if (!userInfo) {
-            return redirect("/")
+            return navigate("/")
         }
-    }, [])
+    }, [navigate])
     
     return (
         <ChatContext.Provider value={

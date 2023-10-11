@@ -39,14 +39,14 @@
 ## Screenshots
 
 # Home Page:
-   <img src="./readmeImages/home page.png" alt="">
+<img src="./readmeImages/home page.png" alt="">
 
 
 # SignUp Page:
-   <img src="./readmeImages/sign up page.png" alt="">
+<img src="./readmeImages/sign up page.png" alt="">
 
 # Search User:
-   <img src="./readmeImages/Search Users.png" alt="">
+<img src="./readmeImages/Search Users.png" alt="">
 
 
 # All Chats Page:

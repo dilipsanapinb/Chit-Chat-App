@@ -1,9 +1,13 @@
 import React from 'react'
-import { Button, FormControl, FormLabel, Input, InputRightElement, VStack,InputGroup } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/button';
+import { FormControl, FormLabel } from '@chakra-ui/form-control';
+import { Input, InputRightElement,InputGroup } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/layout';
 import { useState } from 'react';
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ChatState } from '../../Context/ChatProvider';
 const Login = () => {
     const [show, setShow] = useState(false)
     const [email, setEmail] = useState();
@@ -11,6 +15,7 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const toast = useToast()
     const navigate = useNavigate();
+    const { setUser } = ChatState();
     // handleCkick show and hide the password
     const handleCkick = () => setShow(!show)
     // submit the form
@@ -37,9 +42,9 @@ const Login = () => {
             };
 
             const { data } = await axios.post(
-              "http://127.0.0.1:5000/api/user/login",
-              { email, password },
-              config
+                "http://127.0.0.1:5000/api/user/login",
+                { email, password },
+                config
             );
 
             // console.log(JSON.stringify(data));
@@ -50,9 +55,10 @@ const Login = () => {
                 isClosable: true,
                 position: "bottom",
             });
+            setUser(data)
             localStorage.setItem("userInfo", JSON.stringify(data));
             setLoading(false);
-                  navigate("/chats");
+                    navigate("/chats");
 
         } catch (error) {
             toast({
@@ -66,8 +72,8 @@ const Login = () => {
             setLoading(false);
         }
     }
-    return <VStack spacing='5px' color='black'>
-    
+    return (
+        <VStack spacing='5px' color='black'>
         {/* email */}
         <FormControl id='email' isRequired>
             <FormLabel>Email</FormLabel>
@@ -122,8 +128,9 @@ const Login = () => {
         >
             Get Guest User Credentials
         </Button>
-    
-    </VStack>
+        </VStack>
+    )
 }
+
 
 export default Login

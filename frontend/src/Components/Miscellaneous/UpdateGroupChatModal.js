@@ -1,13 +1,29 @@
 import { useDisclosure } from '@chakra-ui/react'
 import React from 'react'
-import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Button,FormControl,Input,useToast,Box,IconButton,Spinner,} from "@chakra-ui/react";
+import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    Button,
+    FormControl,
+    Input,
+    useToast,
+    Box,
+    IconButton,
+    Spinner,
+} from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
 import { ChatState } from "../../Context/ChatProvider";
 import UserListItem from "../userAvatar/UserListItem";
 import UserBItem from "../userAvatar/UserBItem";
 import { ViewIcon } from '@chakra-ui/icons';
-const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain }) => {
+
+const UpdateGroupChatModal = ({fetchMessages, fetchAgain, setFetchAgain }) => {
     
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [groupChatName, setGroupChatName] = useState();
@@ -32,8 +48,8 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain }) => {
                 },
             };
             const { data } = await axios.get(
-              `http://127.0.0.1:5000/api/user?search=${search}`,
-              config
+                `http://127.0.0.1:5000/api/user?search=${search}`,
+                config
             );
             console.log(data);
             setLoading(false);
@@ -61,12 +77,12 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain }) => {
                 },
             };
             const { data } = await axios.put(
-              `http://127.0.0.1:5000/api/chat/rename`,
-              {
+                `http://127.0.0.1:5000/api/chat/rename`,
+                {
                 chatId: selectedChat._id,
                 chatName: groupChatName,
-              },
-              config
+                },
+                config
             );
             console.log(data._id);
             setSelectedChat(data);
@@ -116,11 +132,11 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain }) => {
                 },
             };
             const { data } = await axios.put(
-              `http://127.0.0.1:5000/api/chat/add`,
-              {
+                `http://127.0.0.1:5000/api/chat/add`,
+                {
                 chatId: selectedChat._id,
                 userId: user1._id,
-              },
+                },
               config
             );
             setSelectedChat(data);
@@ -141,51 +157,48 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain }) => {
     }
 
     // handle remove
-    // const handleRemove = async (user1) => {
-    //     if (selectedChat.groupAdmin._id !== user._id && user1._id !== user._id) {
-    //         toast({
-    //             title: "Only Admin can remove someone!",
-    //             status: "error",
-    //             duration: 5000,
-    //             isClosable: true,
-    //             position: "bottom"
-    //         });
-    //         return;
-    //     }
-    //     try {
-    //         setLoading(true);
-    //         const config = {
-    //             headers: {
-    //                 Authorization: `Bearer ${user.token}`,
-    //             },
-    //         };
-    //         const { data } = await axios.put(
-    //             `/api/chat/removegroup`, {
-    //             chatId: selectedChat._id,
-    //             userId: user1._id
-    //         },
-    //             config
-    //         );
-    //         user1._id === user._id ? setSelectedChat() : setSelectedChat(data);
-    //         setFetchAgain(!fetchAgain)
-    //          fetchMessages()
-    //         setLoading(false)
-    //     } catch (error) {
-    //         toast({
-    //             title: "Error Occured!",
-    //             description: error.response.data.message,
-    //             satus: "error",
-    //             duration: 5000,
-    //             isClosable: true,
-    //             position: "bottom"
-    //         });
-    //         setLoading(false)
-    //     }
-    //     setGroupChatName("")
-    // };
-    const handleRemove = (delUser) => {
-  
-    }
+    const handleRemove = async (user1) => {
+        if (selectedChat.groupAdmin._id !== user._id && user1._id !== user._id) {
+            toast({
+                title: "Only Admin can remove someone!",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+                position: "bottom"
+            });
+            return;
+        }
+        try {
+            setLoading(true);
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${user.token}`,
+                },
+            };
+            const { data } = await axios.put(
+                `/api/chat/removegroup`, {
+                chatId: selectedChat._id,
+                userId: user1._id
+            },
+                config
+            );
+            user1._id === user._id ? setSelectedChat() : setSelectedChat(data);
+            setFetchAgain(!fetchAgain)
+            fetchMessages()
+            setLoading(false)
+        } catch (error) {
+            toast({
+                title: "Error Occured!",
+                description: error.response.data.message,
+                satus: "error",
+                duration: 5000,
+                isClosable: true,
+                position: "bottom"
+            });
+            setLoading(false)
+        }
+        setGroupChatName("")
+    };
 
 
 

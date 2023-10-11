@@ -1,6 +1,6 @@
-const asynchandler = require('express-async-handler');
-const { User } = require('../models/userModel')
-const {generateToken}=require("../config/generateToken")
+const asynchandler = require("express-async-handler");
+const { User } = require("../models/userModel");
+const { generateToken } = require("../config/generateToken");
 
 // get all users and regex
 // ap/user?search=value eg.Dilip
@@ -19,42 +19,41 @@ const allUsers = asynchandler(async (req, res) => {
   res.send(users);
 });
 
-
 const registerUser = asynchandler(async (req, res) => {
-    const { name, email, password, pic } = req.body;
-    
-    if (!name || !email || !password) {
-        res.status(400);
-        throw new Error("Please enter the all fields")
-    }
-    const userExists = await User.findOne({ email });
-    // check the user exists
-    if (userExists) {
-        res.status(400);
-        throw new Error("User allready exists");
-    }
+  const { name, email, password, pic } = req.body;
 
-    // else
+  if (!name || !email || !password) {
+    res.status(400);
+    throw new Error("Please enter the all fields");
+  }
+  const userExists = await User.findOne({ email });
+  // check the user exists
+  if (userExists) {
+    res.status(400);
+    throw new Error("User allready exists");
+  }
 
-    const user = await User.create({
-        name,
-        email,
-        password,
-        pic,
-        
+  // else
+
+  const user = await User.create({
+    name,
+    email,
+    password,
+    pic,
+  });
+  if (user) {
+    res.status(201).json({
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      pic: user.pic,
+      password: user.password,
+      token: generateToken(user._id),
     });
-    if (user) {
-        res.status(201).json({
-            id: user._id,
-            name: user.name,
-            email: user.email,
-            pic: user.pic,
-            token: generateToken(user._id)
-        });
-    } else {
-        res.status(400);
-        throw new Error("Failed to create the user")
-    }
+  } else {
+    res.status(400);
+    throw new Error("Failed to create the user");
+  }
 });
 const authUser = asynchandler(async (req, res) => {
   const { email, password } = req.body;
@@ -76,5 +75,4 @@ const authUser = asynchandler(async (req, res) => {
   }
 });
 
-
-module.exports={registerUser,allUsers,authUser}
+module.exports = { registerUser, allUsers, authUser };

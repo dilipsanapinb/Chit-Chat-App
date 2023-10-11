@@ -5,7 +5,7 @@ import { VStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 import { useState } from "react";
-// import {useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const SignUp = () => {
     const [show, setShow] = useState(false)
@@ -16,7 +16,7 @@ const SignUp = () => {
     const [pic, setPic] = useState();
     const [loading, setLoading] = useState(false);
     const toast = useToast();
-    //  const navigate = useNavigate();
+     const navigate = useNavigate();
     // handleCkick show and hide the password
     const handleCkick = () => setShow(!show)
     // https://api.cloudinary.com/v1_1/dvq5ovjvg
@@ -68,15 +68,15 @@ const SignUp = () => {
     const submitHandler = async() => {
         setLoading(true);
         if (!name || !email || !password || !confirmedpassword) {
-      toast({
+        toast({
         title: "Please Fill all the Feilds",
         status: "warning",
         duration: 5000,
         isClosable: true,
         position: "bottom",
-      });
-      setLoading(false);
-      return;
+        });
+        setLoading(false);
+        return;
         }
         // check password
         if (password !== confirmedpassword) {
@@ -98,14 +98,14 @@ const SignUp = () => {
                 },
             };
             const { data } = await axios.post(
-              "http://127.0.0.1:5000/api/user",
-              {
+                "http://127.0.0.1:5000/api/user",
+                {
                 name,
                 email,
                 password,
                 pic,
-              },
-              config
+                },
+                config
             );
             console.log(data);
             toast({
@@ -117,9 +117,7 @@ const SignUp = () => {
             });
             localStorage.setItem("userInfo", JSON.stringify(data));
             setLoading(false);
-            //  history.push("/chats");
-                window.location.href="/"
-
+            navigate('/chats')
         }
         catch (error) {
             toast({
@@ -134,7 +132,8 @@ const SignUp = () => {
     }
     }
 
-    return <VStack spacing='5px' color='black'>
+    return (
+        <VStack spacing='5px' color='black'>
         {/* name */}
         <FormControl id='first-name' isRequired>
             <FormLabel>Name</FormLabel>
@@ -205,6 +204,7 @@ const SignUp = () => {
         </Button>
     
     </VStack>
+    )
 }
 
 export default SignUp

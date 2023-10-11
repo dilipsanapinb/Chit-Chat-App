@@ -1,4 +1,17 @@
-import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Button,useDisclosure,FormControl,Input,useToast,Box,
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  useDisclosure,
+  FormControl,
+  Input,
+  useToast,
+  Box,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
@@ -143,7 +156,7 @@ const GroupChatModal = ({ children }) => {
             </FormControl>
             <FormControl>
               <Input
-                placeholder="Add Users eg: John, Piyush, Jane"
+                placeholder="Add Users eg: Dilip, Indu, Barku"
                 mb={1}
                 onChange={(e) => handleSearch(e.target.value)}
               />

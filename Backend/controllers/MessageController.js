@@ -5,14 +5,14 @@ const { Chat } = require("../models/ChatModel")
 
 // get all massage
 const allMessages = asynchandler(async (req, res) => {
-  try {
-    const messages = await Message.find({ chat: req.params.chatId })
-      .populate("sender", "name pic email")
-      .populate("chat");
-    res.json(messages);
-  } catch (error) {
-    res.status(400);
-    throw new Error(error.message);
+    try {
+        const messages = await Message.find({ chat: req.params.chatId })
+            .populate("sender", "name pic email")
+            .populate("chat");
+        res.json(messages);
+    } catch (error) {
+        res.status(400);
+        throw new Error(error.message);
     }
 });
     

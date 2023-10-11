@@ -1,19 +1,23 @@
 import { ViewIcon } from '@chakra-ui/icons';
-import {IconButton, useDisclosure,Button, Modal} from '@chakra-ui/react'
 import {
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
     ModalCloseButton,
+    IconButton,
+    useDisclosure,
+    Button,
     Image,
-  Text
-} from '@chakra-ui/react'
+    Text,
+} from '@chakra-ui/react';
+
 import React from 'react';
 
 const ProfileModal = ({user,children}) => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure();
     return (
         <>
             {
@@ -21,14 +25,11 @@ const ProfileModal = ({user,children}) => {
                     : (<IconButton
                         display={{ base: "flex" }}
                         icon={<ViewIcon />}
-                        onClick={onOpen}
-                    >
-                    
-                    </IconButton>)
-            }
+                        onClick={onOpen}/>
+                    )}
             <Modal size={"lg"} onClose={onClose} isOpen={isOpen} isCentered>
                 <ModalOverlay />
-            <ModalContent height={'410px'}>
+                <ModalContent height={'410px'}>
                     <ModalHeader
                         fontSize={"40px"}
                         fontFamily={"Work sans"}
@@ -36,7 +37,7 @@ const ProfileModal = ({user,children}) => {
                         justifyContent={"center"}
                     >{user.name}
                     </ModalHeader>
-                <ModalCloseButton />
+                    <ModalCloseButton />
                     <ModalBody
                         display={"flex"}
                         flexDir={"column"}
@@ -45,7 +46,7 @@ const ProfileModal = ({user,children}) => {
                     >
                         <Image
                             borderRadius={"full"}
-                            boxSize={"150px"}
+                            boxSize={"170px"}
                             src={user.pic}
                             alt={user.name}
                         />
