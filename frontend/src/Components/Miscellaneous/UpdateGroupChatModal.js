@@ -23,7 +23,7 @@ import UserListItem from "../userAvatar/UserListItem";
 import UserBItem from "../userAvatar/UserBItem";
 import { ViewIcon } from '@chakra-ui/icons';
 
-const UpdateGroupChatModal = ({fetchMessages, fetchAgain, setFetchAgain }) => {
+const UpdateGroupChatModal = ({fetchAgain, setFetchAgain, fetchMessages }) => {
     
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [groupChatName, setGroupChatName] = useState();
@@ -101,7 +101,11 @@ const UpdateGroupChatModal = ({fetchMessages, fetchAgain, setFetchAgain }) => {
         }
         setGroupChatName("")
     }
-    // // handleAdd
+
+
+
+
+    // handleAdd
     const handleAddUser = async (user1) => {
         if (selectedChat.users.find((u) => u._id === user1._id)) {
             toast({
@@ -137,7 +141,7 @@ const UpdateGroupChatModal = ({fetchMessages, fetchAgain, setFetchAgain }) => {
                 chatId: selectedChat._id,
                 userId: user1._id,
                 },
-              config
+                config
             );
             setSelectedChat(data);
             setFetchAgain(!fetchAgain);
@@ -176,11 +180,12 @@ const UpdateGroupChatModal = ({fetchMessages, fetchAgain, setFetchAgain }) => {
                 },
             };
             const { data } = await axios.put(
-                `/api/chat/removegroup`, {
+              `http://127.0.0.1:5000//api/chat/removegroup`,
+              {
                 chatId: selectedChat._id,
-                userId: user1._id
-            },
-                config
+                userId: user1._id,
+              },
+              config,
             );
             user1._id === user._id ? setSelectedChat() : setSelectedChat(data);
             setFetchAgain(!fetchAgain)

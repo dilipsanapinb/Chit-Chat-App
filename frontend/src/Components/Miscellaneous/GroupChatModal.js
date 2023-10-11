@@ -18,6 +18,8 @@ import { useState } from "react";
 import { ChatState } from "../../Context/ChatProvider";
 import UserListItem from "../userAvatar/UserListItem";
 import UserBItem from "../userAvatar/UserBItem";
+
+
 const GroupChatModal = ({ children }) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -156,7 +158,7 @@ const GroupChatModal = ({ children }) => {
             </FormControl>
             <FormControl>
               <Input
-                placeholder="Add Users eg: Dilip, Indu, Barku"
+                placeholder="Add Users eg: Dilip, Ajay, Kalpesh"
                 mb={1}
                 onChange={(e) => handleSearch(e.target.value)}
               />
