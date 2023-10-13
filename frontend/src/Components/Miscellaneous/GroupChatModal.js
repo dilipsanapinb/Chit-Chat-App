@@ -168,7 +168,7 @@ const GroupChatModal = ({ children }) => {
                 <UserBItem
                   key={user._id}
                   user={u}
-                  handleFunction={() => handleDelete(u)}
+                  handleFunction={() =>handleDelete}
                 />
               ))}
             </Box>

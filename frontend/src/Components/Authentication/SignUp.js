@@ -13,10 +13,10 @@ const buttonContainerStyle = {
 };
 const SignUp = () => {
   const [show, setShow] = useState(false);
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [confirmedpassword, setConfirmassaword] = useState();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmedpassword, setConfirmassaword] = useState('');
   const [pic, setPic] = useState();
   const [loading, setLoading] = useState(false);
   const toast = useToast();
