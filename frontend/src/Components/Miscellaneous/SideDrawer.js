@@ -134,8 +134,9 @@ const SideDrawer = () => {
             <Box
                 display="flex"
                 justifyContent="space-between"
+                backgroundColor={"#00bfaf"}
                 alignItems="center"
-                bg="white"
+                // bg="white"
                 w="100%"
                 p="5px 10px 5px 10px"
                 borderWidth="5px"
@@ -143,12 +144,14 @@ const SideDrawer = () => {
                 <Tooltip label="Search Users to Chat" hasArrow placement="bottom-end">
                     <Button variant="ghost" onClick={onOpen}>
                         <i className="fas fa-search"></i>
-                        <Text display={{ base: 'none', md: 'flex' }} p="4px">
+                        <Text display={{ base: 'none', md: 'flex' }} p="4px" color={""}>
                             Search User
                         </Text>
                     </Button>
                 </Tooltip>
-                <Text fontSize="2xl" fontFamily="work sans">
+                <Text fontSize="2xl"
+        
+                    fontFamily="work sans">
                     Chit-Chat-App
                 </Text>
                 {/*  */}

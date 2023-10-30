@@ -4,16 +4,15 @@ require('dotenv').config();
 const {ConnectToDB}=require("./config/db")
 const port = process.env.PORT || 5000;
 const colors = require("colors");
+const cors = require('cors');
 const { userRouter } = require("./Routes/userRoutes");
 const { chatRouter } = require('./Routes/chatRouter');
 const {messageRouter}=require("./Routes/MessagesRoute")
 const {notFound,errorHandler}=require("./middleWares/errorMiddleware");
-const path=require("path")
-var cors = require('cors');
-app.use(cors())
+const path = require("path")
+
 app.use(express.json());
-
-
+app.use(cors())
 // users api
 app.use("/api/user", userRouter);
 // chat api
@@ -35,7 +34,7 @@ if (process.env.NODE_ENV === "production")
     })
     }
     
-//*********deployment */
+
 
 
 // error handling
@@ -50,12 +49,11 @@ const server=app.listen(port,()=>{
     ConnectToDB()
 })
 
-const io = require("socket.io")(server, {
-  pingTimeout: 60000,
+const io = require('socket.io')(server, {
+  pingTimeout: 6000,
   cors: {
-    origin:
-      "https://64fb550e5cf4cf2d5218368c--sage-dolphin-a0d981.netlify.app/",
-    // credentials: true,
+    origin: 'http://localhost:3000', 
+    methods: ['GET', 'POST'],
   },
 });
 

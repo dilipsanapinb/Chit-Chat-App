@@ -14,8 +14,8 @@ const buttonContainerStyle = {
 };
 const Login = () => {
   const [show, setShow] = useState(false);
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const toast = useToast();
   const navigate = useNavigate();
@@ -106,7 +106,7 @@ const Login = () => {
           {/* enter the password */}
           <InputGroup>
             <Input
-              // if sho then show the text else show the password format
+              // if show then show the text else show the password format
               type={show ? 'text' : 'password'}
               placeholder="Enter Your Password"
               value={password}
